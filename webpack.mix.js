@@ -13,17 +13,21 @@ const tailwindcss = require('tailwindcss');
  |
  */
 
-// mix.copy('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/fonts/webfonts');
-// mix.js('resources/assets/front/js/app.js', 'public/front/js')
-//     .sass('resources/assets/front/sass/app.scss', 'public/front/css/app.css')
-//     .options({
-//         processCssUrls: false,
-//         postCss: [ 
-//             tailwindcss('tailwind.config.js'),
-//          ],
-//     }).sourceMaps();
+ mix.copy('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/fonts/webfonts');
+ mix.js('resources/assets/front/js/app.js', 'public/front/js')
+     .sass('resources/assets/front/sass/app.scss', 'public/front/css/app.css')
+     .options({
+         processCssUrls: false,
+         postCss: [
+             tailwindcss('tailwind.config.js'),
+             require("tailwindcss"),
+         ],
+     }).sourceMaps();
 
-
+     mix.js("resources/js/app.js", "public/js")
+     .postCss("resources/css/app.css", "public/css", [
+      require("tailwindcss"),
+     ]);
 
 /*
  |--------------------------------------------------------------------------

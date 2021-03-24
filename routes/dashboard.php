@@ -1,13 +1,16 @@
 <?php
 
+use App\Http\Controllers\Admin\GroupsController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /* Dashboard Routes */
-Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['admin']], function () {
+/*Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['admin']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
-});
-
+});*/
+Route::post('groupes/fetch','Admin\GroupsController@fetch')->name('fetch');
 Route::group(['namespace' => 'Admin', 'prefix' => 'dashboard', 'as' => 'admin.', 'middleware' => ['admin']], function () {
+
     Route::name('dashboard')->get('/', 'HomeController@index');
     // Sections
     Route::resource('sections', 'SectionsController', ['except' => 'show']);
@@ -17,6 +20,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'dashboard', 'as' => 'admin.',
     Route::resource('sliders', 'SlidersController', ['except' => 'show']);
     // Contacts
     Route::resource('contacts', 'ContactsController', ['only' => ['index', 'show', 'destroy']]);
+
+    /* ====== Groups ====== */
+    Route::resource('groups', 'GroupsController');
+    Route::post('groupes/fetch','GroupsController@groupfetch')->name('groups.fetch');
+    /* ====== Group Type =====*/
+    Route::resource('group_types','GroupTypeController');
     /* ====== About =======*/
     Route::name('abouts.edit')->get('abouts/edit', 'AboutsController@edit');
     Route::name('abouts.update')->patch('abouts/edit', 'AboutsController@update');

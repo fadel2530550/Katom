@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">    
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Title -->
     <title>Code Ideas | @yield('page.title') </title>
     <!-- SEO Tags -->
@@ -13,13 +13,14 @@
     @yield('head.twitterTags')
     @yield('head.metaTags')
     <!-- lang Tags -->
-    <meta name="locale" content="{{ config('app.locale') }}">    
-    <!-- Type Tags --> 
+    <meta name="locale" content="{{ config('app.locale') }}">
+    <!-- Type Tags -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+     <!-- Styles -->
+     <link href="{{ asset('front/css/app.css') }}" rel="stylesheet">
     <!-- Scripts -->
-    <script src="{{ asset('front/js/app.js') }}" defer></script>    
-    <!-- Styles -->
-    <link href="{{ asset('front/css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('front/js/app.js') }}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="admin/img/favicon/apple-touch-icon.png">

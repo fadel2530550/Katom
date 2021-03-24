@@ -33,7 +33,7 @@
                 </h1>
                 <div>
                     <a href="{{ route('login_form') }}" class="ml-6 button is-link is-rounded is-medium">لوحة التحكم</a>
-                    <a href="{{ route('landing') }}" class="button is-white is-rounded is-medium">الرئيسية</a>
+                    <!--<a href="" class="button is-white is-rounded is-medium">الرئيسية</a>-->
                 </div>
                 <figure class="mt-6">
                     <img src="{{ asset('/admin/img/illustrations/hero-img.svg') }}" alt="">

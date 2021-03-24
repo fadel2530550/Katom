@@ -4,19 +4,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <meta name="locale" content="{{ config('app.locale') }}">
     <!-- Title -->
     <title>لوحة التحكم | @yield('page.title')</title>
     <!-- SEO Tags -->
     <meta name="description" content="Dashboard, Code, Ideas, settings, laravel, bulma">
     <meta name="author" content="Code Ideas">
-    <!-- Type Tags --> 
+    <!-- Type Tags -->
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Styles -->
     <link href="{{ asset('/admin/css/app.css') }}" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="admin/img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="admin/img/favicon/favicon-32x32.png">
@@ -54,7 +56,7 @@
         <!--========Admin landing layout (feel free to remove it and change route)============-->
         @elseif(Route::current()->getName() === 'admin_landing')
             @yield('content')
-        <!--========Admin Area layout============-->    
+        <!--========Admin Area layout============-->
         @else
             @include('admin.partials.alerts')
             @include('admin.includes.header')
